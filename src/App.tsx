@@ -5,17 +5,31 @@ import {Root2} from './Types/Data';
 function App() {
   
   const [data, setData] = useState<Root2 | null>();
+  const [name, setName] = useState('');
 
-  axios.get("https://restcountries.com/v3.1/name/belgium?fullText=true")
-    .then(response => {
-      setData(response.data[0]);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  let api = `https://restcountries.com/v3.1/name/${name}?fullText=true`;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>):void =>{
+      e.preventDefault();
+      axios.get(api)
+      .then(response => {
+        setData(response.data[0]);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   return (
     <div className="App">
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="text" 
+          value={name} 
+          onChange={e => setName(e.target.value)} 
+        />
+        <button type="submit">Pesquisar</button>
+      </form>
       {data ? (
         <>
           <p>Common name: {data.name.common}</p>
@@ -30,7 +44,7 @@ function App() {
           {/* <p>languages:  {data.languages.map(item => (
             
           ))}</p> */}
-          <p>Languages:</p>
+          <p>Borders:</p>
           <ul>
           {data.borders.map(item => 
                 <li>{item}</li>
