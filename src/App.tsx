@@ -36,7 +36,6 @@ function App() {
           <p>official name: {data.name.official}</p>
           {/* <p>currencies: {data.currencies.JOD.name}</p> */}
           <p>population: {data.population}</p>
-          <p>Member of Europe Union: {data.unMember ? "yes" : "no"}</p>
           <p>capital: {data.capital}</p>
           <p>region: {data.region}</p>
           <p>subregion: {data.subregion}</p>
