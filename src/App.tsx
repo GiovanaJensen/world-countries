@@ -52,12 +52,12 @@ function App() {
         <img src={data.flags.svg} alt={data.flags.alt} />
         <p>coat Of Arms</p>
         <img src={data.coatOfArms.png} alt="coat of arms" />
-        <p>Languages:</p>
+        {/* <p>Languages:</p>
         <ul>
           {data.languages.map(language => 
             <li>{language.name}</li>
           )}
-        </ul>
+        </ul> */}
       </>
     ) : (
       <p>Loading...</p>
