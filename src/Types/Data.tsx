@@ -10,13 +10,17 @@ export interface Root2 {
   independent: boolean
   status: string
   unMember: boolean
-  currencies: Currencies
+  currencies: [{
+    name: string
+  }]
   idd: Idd
   capital: string[]
   altSpellings: string[]
   region: string
   subregion: string
-  languages: Languages
+  languages: [{
+    name: string;
+  }]
   translations: Translations
   latlng: number[]
   landlocked: boolean
@@ -41,37 +45,9 @@ export interface Root2 {
 export interface Name {
   common: string
   official: string
-  nativeName: NativeName
-}
-
-export interface NativeName {
-  deu: Deu
-  fra: Fra
-  nld: Nld
-}
-
-export interface Deu {
-  official: string
-  common: string
-}
-
-export interface Fra {
-  official: string
-  common: string
-}
-
-export interface Nld {
-  official: string
-  common: string
-}
-
-export interface Currencies {
-  EUR: Eur
-}
-
-export interface Eur {
-  name: string
-  symbol: string
+  // nativeName: [{
+  //   name: string
+  // }]
 }
 
 export interface Idd {
@@ -79,11 +55,6 @@ export interface Idd {
   suffixes: string[]
 }
 
-export interface Languages {
-  deu: string
-  fra: string
-  nld: string
-}
 
 export interface Translations {
   ara: Ara
