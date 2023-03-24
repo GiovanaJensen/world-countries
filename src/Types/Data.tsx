@@ -18,9 +18,7 @@ export interface Root2 {
   altSpellings: string[]
   region: string
   subregion: string
-  languages: [{
-    name: string;
-  }]
+  languages: Languages
   translations: Translations
   latlng: number[]
   landlocked: boolean
@@ -53,6 +51,10 @@ export interface Name {
 export interface Idd {
   root: string
   suffixes: string[]
+}
+
+interface Languages {
+  [code: string]: string;
 }
 
 

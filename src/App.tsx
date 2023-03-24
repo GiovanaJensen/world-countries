@@ -13,6 +13,7 @@ function App() {
       e.preventDefault();
       axios.get(api)
       .then(response => {
+        console.log(response.data[0]);
         setData(response.data[0]);
       })
       .catch(err => {
@@ -34,9 +35,7 @@ function App() {
       <>
         <p>Common name: {data.name.common}</p>
         <p>official name: {data.name.official}</p>
-        {/* <p>currencies: {data.currencies.map(currency => 
-          currency.name
-          )}</p> */}
+        <p>currencies: {data?.currencies && Object.values(data.currencies).map((currency:any) => currency.name).join(", ")}</p>
         <p>population: {data.population}</p>
         <p>capital: {data.capital}</p>
         <p>region: {data.region}</p>
@@ -52,12 +51,12 @@ function App() {
         <img src={data.flags.svg} alt={data.flags.alt} />
         <p>coat Of Arms</p>
         <img src={data.coatOfArms.png} alt="coat of arms" />
-        {/* <p>Languages:</p>
+        <p>Languages:</p>
         <ul>
-          {data.languages.map(language => 
-            <li>{language.name}</li>
-          )}
-        </ul> */}
+        {Object.entries(data.languages).map(([code, name]) =>
+    <li key={code}>{name}</li>
+  )}
+        </ul>
       </>
     ) : (
       <p>Loading...</p>
