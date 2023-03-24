@@ -47,16 +47,16 @@ function App() {
             <li>{item}</li>
           )}
         </ul>
+        <p>Languages: {Object.values(data.languages).join(", ")}</p>  
+        {/* {Object.entries(data.languages).map(([code, name]) =>
+          <li key={code}>{name}</li>
+        )} */}
         <p>Flag:</p>
         <img src={data.flags.svg} alt={data.flags.alt} />
         <p>coat Of Arms</p>
         <img src={data.coatOfArms.png} alt="coat of arms" />
-        <p>Languages:</p>
-        <ul>
-        {Object.entries(data.languages).map(([code, name]) =>
-    <li key={code}>{name}</li>
-  )}
-        </ul>
+        
+        
       </>
     ) : (
       <p>Loading...</p>
